@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Brawl Stars Level Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="bg-base"></div>
+  <div class="bg-blob blob1"></div>
+  <div class="bg-blob blob2"></div>
+  <div class="bg-blob blob3"></div>
+  <div class="bg-blob blob4"></div>
+  <div class="bg-grid"></div>
+
+  <div class="wrapper">
+
+    <!-- ── Brawl Stars Logo ── -->
+    <header class="header">
+      <img src="pictures/brawl logo.webp" alt="Brawl Stars" class="brawl-logo" draggable="false" />
+      <p class="header-sub">Upgrade Cost Calculator</p>
+    </header>
+
+    <!-- ── Level Card ── -->
+    <section class="card">
+      <div class="card-title">Level Upgrade</div>
+
+      <div class="level-grid">
+        <div class="level-box">
+          <div class="level-label">Current Level</div>
+          <div class="level-control">
+            <button class="level-btn inc" id="cur-inc" aria-label="Increase current level">
+              <svg viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+              </svg>
+            </button>
+            <div class="level-value" id="currentLevel">1</div>
+            <button class="level-btn dec" id="cur-dec" aria-label="Decrease current level">
+              <svg viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+              </svg>
+            </button>
+          </div>
+          <div class="level-sub">out of 11</div>
+        </div>
+
+        <div class="level-arrow">➜</div>
+
+        <div class="level-box">
+          <div class="level-label">Desired Level</div>
+          <div class="level-control">
+            <button class="level-btn inc" id="des-inc" aria-label="Increase desired level">
+              <svg viewBox="0 0 24 24">
+                <polyline points="18 15 12 9 6 15" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+              </svg>
+            </button>
+            <div class="level-value" id="desiredLevel">1</div>
+            <button class="level-btn dec" id="des-dec" aria-label="Decrease desired level">
+              <svg viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+              </svg>
+            </button>
+
+          </div>
+          <div class="level-sub">out of 11</div>
+        </div>
+      </div>
+
+      <div id="warning" class="warning">⚠️ Desired level is lower than current! ⚠️</div>
+    </section>
+
+    <!-- ── Utilities Card ── -->
+    <section class="card">
+      <div class="card-title">Utilities</div>
+
+      <div class="items-grid">
+
+        <div class="item-card" id="item-card-gear">
+          <img src="pictures/gear.webp" alt="Gear" class="item-icon" draggable="false" />
+          <div class="item-name">Gear</div>
+          <div class="item-counter">
+            <button class="item-btn minus" id="btn-minus-gear">−</button>
+            <span class="item-val" id="val-gear">0</span>
+            <button class="item-btn plus" id="btn-plus-gear">+</button>
+          </div>
+          <div class="item-meta">max 6 · 1,000 coins</div>
+        </div>
+
+        <div class="item-card" id="item-card-star_power">
+          <img src="pictures/star power.webp" alt="Star Power" class="item-icon" draggable="false" />
+          <div class="item-name">Star Power</div>
+          <div class="item-counter">
+            <button class="item-btn minus" id="btn-minus-star_power">−</button>
+            <span class="item-val" id="val-star_power">0</span>
+            <button class="item-btn plus" id="btn-plus-star_power">+</button>
+          </div>
+          <div class="item-meta">max 2 · 2,000 coins</div>
+        </div>
+
+        <div class="item-card" id="item-card-gadget">
+          <img src="pictures/gadget.webp" alt="Gadget" class="item-icon" draggable="false" />
+          <div class="item-name">Gadget</div>
+          <div class="item-counter">
+            <button class="item-btn minus" id="btn-minus-gadget">−</button>
+            <span class="item-val" id="val-gadget">0</span>
+            <button class="item-btn plus" id="btn-plus-gadget">+</button>
+          </div>
+          <div class="item-meta">max 2 · 1,000 coins</div>
+        </div>
+
+        <div class="item-card" id="item-card-hypercharge">
+          <img src="pictures/Hypercharge.webp" alt="Hypercharge" class="item-icon" draggable="false" />
+          <div class="item-name">Hypercharge</div>
+          <div class="item-counter">
+            <button class="item-btn minus" id="btn-minus-hypercharge">−</button>
+            <span class="item-val" id="val-hypercharge">0</span>
+            <button class="item-btn plus" id="btn-plus-hypercharge">+</button>
+          </div>
+          <div class="item-meta">max 1 · 5,000 coins</div>
+        </div>
+
+        <div class="item-card item-wide" id="item-card-buffie">
+          <img src="pictures/buffie.webp" alt="Buffie" class="item-icon" draggable="false" />
+          <div class="item-right">
+            <div class="item-name">Buffie</div>
+            <div class="item-counter">
+              <button class="item-btn minus" id="btn-minus-buffie">−</button>
+              <span class="item-val" id="val-buffie">0</span>
+              <button class="item-btn plus" id="btn-plus-buffie">+</button>
+            </div>
+            <div class="item-meta">max 3 · 1,000 coins + 2,000 PP</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Results ── -->
+    <section class="results-card">
+      <div class="results-title">Resources Needed</div>
+
+      <div class="results-grid">
+        <div class="result-box coins">
+          <div class="result-label">
+            <img src="pictures/coins.webp" alt="Coins" class="res-icon" draggable="false" />
+            Coins
+          </div>
+          <div class="result-value" id="totalCoins">0</div>
+        </div>
+        <div class="result-box pp">
+          <div class="result-label">
+            <img src="pictures/power points.webp" alt="Power Points" class="res-icon" draggable="false" />
+            Power Points
+          </div>
+          <div class="result-value" id="totalPP">0</div>
+        </div>
+      </div>
+
+      <div class="breakdown-wrap">
+        <div class="breakdown-title">Cost Breakdown</div>
+        <div class="breakdown" id="breakdown">
+          <div class="breakdown-empty">Adjust the settings above to calculate costs.</div>
+        </div>
+      </div>
+
+      <button class="btn-reset" id="btn-reset">Reset Everything</button>
+    </section>
+
+    <footer class="footer">made by <span>cuki</span></footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
